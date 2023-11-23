@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <InputGroup className="mb-3">
+        <Button variant="outline-secondary" id="button-addon1">
+          Button
+        </Button>
+        <Form.Control
+          aria-label="Example text with button addon"
+          aria-describedby="basic-addon1"
+        />
+      </InputGroup>
     </div>
   );
 }
