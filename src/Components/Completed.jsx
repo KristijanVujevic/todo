@@ -1,22 +1,16 @@
 
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
+import TaskCard from './TaskCard'; 
 
+const Completed = ({ completedTasks, onDeleteTask, onToggleTaskCompletion }) => (
+  <TaskCard tasks={completedTasks} onDeleteTask={onDeleteTask} onToggleTaskCompletion={onToggleTaskCompletion} />
+);
 
-
-
-const Completed = ({ completedTasks }) => {
-    
-  return (
-    <div className={`completed-tasks`}>
-        
-      <h2>Completed Tasks</h2>
-      <ul>
-        {completedTasks.map((item, index) => (
-          <li key={index}>{item.text}</li>
-        ))}
-      </ul>
-    </div>
-  );
+Completed.propTypes = {
+  completedTasks: PropTypes.array.isRequired,
+  onDeleteTask: PropTypes.func.isRequired,
+  onToggleTaskCompletion: PropTypes.func.isRequired,
 };
 
 export default Completed;

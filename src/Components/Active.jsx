@@ -1,21 +1,17 @@
-import React from "react";
+
+import React from 'react';
+import PropTypes from 'prop-types';
+import TaskCard from './TaskCard'; 
+
+const Active = ({ activeTasks, onDeleteTask, onToggleTaskCompletion }) => (
+  <TaskCard tasks={activeTasks} onDeleteTask={onDeleteTask} onToggleTaskCompletion={onToggleTaskCompletion} />
+);
 
 
-
-const Active = ({ activeTasks }) => {
-  
-
-  return (
-    <div className={`active-tasks`}>
-      
-      <h2>Active Tasks</h2>
-      <ul>
-        {Array.isArray(activeTasks) && activeTasks.map((item, index) => (
-          <li key={index}>{item.text}</li>
-        ))}
-      </ul>
-    </div>
-  );
+Active.propTypes = {
+  activeTasks: PropTypes.array.isRequired,
+  onDeleteTask: PropTypes.func.isRequired,
+  onToggleTaskCompletion: PropTypes.func.isRequired,
 };
 
 export default Active;
