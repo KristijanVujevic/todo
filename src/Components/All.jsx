@@ -1,4 +1,3 @@
-// All.js
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
@@ -16,14 +15,17 @@ const All = ({
   completedTasks,
 }) => {
   const [task, setTask] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
 
   const addTask = () => {
     if (task.trim() !== "") {
-      onAddTask({ id: Date.now(), text: task, completed: false });
+      onAddTask({ id: Date.now(), text: task, completed: false, date, time });
       setTask("");
+      setDate("");
+      setTime("");
     }
   };
-
   const deleteTask = (taskId) => {
     onDeleteTask(taskId);
   };
@@ -62,7 +64,7 @@ const All = ({
               <Form.Check
                 type="checkbox"
                 id={`checkbox-${item.id}`}
-                label={item.text}
+                label={`${item.text} - Added on ${item.date} at ${item.time}`}
                 checked={item.completed}
                 onChange={() => toggleTaskCompletion(item.id)}
               />

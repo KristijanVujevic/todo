@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import All from "./Components/All";
@@ -21,7 +20,14 @@ function App() {
   }, [zadLista]);
 
   const addTask = (newTask) => {
-    setZadLista([...zadLista, newTask]);
+    const currentTime = new Date();
+    const formattedTime = currentTime.toLocaleTimeString();
+    const formattedDate = currentTime.toLocaleDateString();
+
+    setZadLista([
+      ...zadLista,
+      { ...newTask, date: formattedDate, time: formattedTime },
+    ]);
   };
 
   const deleteTask = (taskId) => {

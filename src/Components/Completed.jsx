@@ -1,10 +1,17 @@
+import React from "react";
+import PropTypes from "prop-types";
+import TaskCard from "./TaskCard";
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import TaskCard from './TaskCard'; 
-
-const Completed = ({ completedTasks, onDeleteTask, onToggleTaskCompletion }) => (
-  <TaskCard tasks={completedTasks} onDeleteTask={onDeleteTask} onToggleTaskCompletion={onToggleTaskCompletion} />
+const Completed = ({
+  completedTasks,
+  onDeleteTask,
+  onToggleTaskCompletion,
+}) => (
+  <TaskCard
+    tasks={completedTasks}
+    onDeleteTask={onDeleteTask}
+    onToggleTaskCompletion={onToggleTaskCompletion}
+  />
 );
 
 Completed.propTypes = {
