@@ -1,8 +1,9 @@
-React ToDo List App
-Overview
+#React ToDo List App
+
+##Overview
 This is a simple ToDo List application built using React. The app allows users to add tasks, display them with their corresponding creation time, mark tasks as completed, and view completed tasks separately.
 
-Features
+###Features
 Add Task: Users can add tasks to the ToDo list.
 Display: Tasks are displayed along with the time they were added.
 Mark as Completed: Tasks can be marked as completed.
@@ -10,7 +11,7 @@ Tabs: The app has three tabs - "Active" and "Completed" to separate active and c
 Getting Started
 Prerequisites
 Node.js installed on your machine
-Installation
+###Installation
 
 1. Clone the repository:
    gh repo clone KristijanVujevic/todo
@@ -26,7 +27,7 @@ npm start
 
 5. Open the app in your browser at http://localhost:3000.
 
-Usage
+###Usage
 Add Task:
 
 Enter the task in the input field.
@@ -38,7 +39,7 @@ View Completed Tasks:
 
 Switch to the "Completed" tab to view completed tasks.
 
-Contributing
+###Contributing
 Contributions are welcome! Please follow these steps:
 
 Fork the repository.
@@ -47,5 +48,5 @@ Make your changes and commit them: git commit -m 'Add new feature'.
 Push to the branch: git push origin feature/new-feature.
 Submit a pull request.
 
-License
+###License
 This project is licensed under the MIT License.
