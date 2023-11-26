@@ -1,19 +1,26 @@
 // All.js
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Card from 'react-bootstrap/Card';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import ListGroup from "react-bootstrap/ListGroup";
+import Card from "react-bootstrap/Card";
 
-const All = ({ zadLista, onAddTask, onDeleteTask, onToggleTaskCompletion, onDeleteAllCompletedTasks }) => {
-  const [task, setTask] = useState('');
+const All = ({
+  zadLista,
+  onAddTask,
+  onDeleteTask,
+  onToggleTaskCompletion,
+  onDeleteAllCompletedTasks,
+  completedTasks,
+}) => {
+  const [task, setTask] = useState("");
 
   const addTask = () => {
-    if (task.trim() !== '') {
+    if (task.trim() !== "") {
       onAddTask({ id: Date.now(), text: task, completed: false });
-      setTask('');
+      setTask("");
     }
   };
 
@@ -29,7 +36,11 @@ const All = ({ zadLista, onAddTask, onDeleteTask, onToggleTaskCompletion, onDele
     <Card>
       <Card.Body>
         <InputGroup className={` mb-3 `}>
-          <Button variant="outline-secondary" id="button-addon1" onClick={addTask}>
+          <Button
+            variant="outline-secondary"
+            id="button-addon1"
+            onClick={addTask}
+          >
             Add
           </Button>
           <Form.Control
@@ -44,7 +55,9 @@ const All = ({ zadLista, onAddTask, onDeleteTask, onToggleTaskCompletion, onDele
           {zadLista.map((item) => (
             <ListGroup.Item
               key={item.id}
-              style={{ backgroundColor: item.completed ? 'lightgreen' : 'transparent' }}
+              style={{
+                backgroundColor: item.completed ? "lightgreen" : "transparent",
+              }}
             >
               <Form.Check
                 type="checkbox"
@@ -53,15 +66,25 @@ const All = ({ zadLista, onAddTask, onDeleteTask, onToggleTaskCompletion, onDele
                 checked={item.completed}
                 onChange={() => toggleTaskCompletion(item.id)}
               />
-              <Button variant="danger" size="sm" onClick={() => deleteTask(item.id)}>
+              <Button
+                variant="danger"
+                size="sm"
+                onClick={() => deleteTask(item.id)}
+              >
                 Delete
               </Button>
             </ListGroup.Item>
           ))}
         </ListGroup>
-        <Button variant="danger" onClick={() => onDeleteAllCompletedTasks()} className="mt-3">
-          Delete All Completed
-        </Button>
+        {completedTasks.length > 0 && (
+          <Button
+            variant="danger"
+            onClick={onDeleteAllCompletedTasks}
+            className="mt-3"
+          >
+            Delete All Completed
+          </Button>
+        )}
       </Card.Body>
     </Card>
   );
